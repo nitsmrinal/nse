@@ -15,7 +15,7 @@ public class DBUtil {
 
 	}
 
-	public static Connection getConnection(String db) {
+	public static Connection getConnection(String db) throws SQLException, ClassNotFoundException {
 
 		String className = "";
 		String dbUrl="";
@@ -30,8 +30,8 @@ public class DBUtil {
 		}
 		else if (!"".equals(db) && db.equals("MYSQL")){
 
-//			Class.forName("com.mysql.jdbc.Driver");
-//			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/nse", "root", "root");
+			Class.forName("com.mysql.jdbc.Driver");
+			connection = DriverManager.getConnection("jdbc:mysql://192.168.3.60:3306/nseinfo?allowLoadLocalInfile=true", "monty", "root");
 		}
 		
 		
